@@ -32,7 +32,7 @@
             total income:-
         </h5>
         <p id="income">
-            0
+           <span>0</span> 
         </p>
     </div>
    <div >
@@ -40,8 +40,8 @@
         <h5 class="balance">
             total expense:-
         </h5>
-        <p id="expences">
-            0
+        <p id="expenses">
+          <span>0</span>  
         </p>
     </div>
     
@@ -49,8 +49,8 @@
         <h5 class="balance">
             total savings:-
         </h5>
-        <p >
-            0
+        <p id="savings" >
+           <span>0</span> 
         </p>
     </div>
     </section>
@@ -68,14 +68,14 @@
  <label for="Amount">Amount:</label>
  <input name="Amount" type="number" placeholder="amount" id="amoId" min="0.1" required> 
  <label for="Date">Date:</label>
- <input type="date" name="Date" class="date">
+ <input type="date" id="date" name="Date" class="date">
  <label for="Type">Type:</label>
  <select name="Type" id="select-type">
     <option value="income">Income</option>
     <option value="expense">expense</option>
 
  </select>
- <button onclick="fun()">ADD ENTRY</button>
+ <button id="submit-Btn">ADD ENTRY</button>
 </section>
 </main>
 <script src="./script.js"></script>
