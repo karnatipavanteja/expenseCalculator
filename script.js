@@ -10,3 +10,4 @@ function fun() {
     expenseRef.innerText=amoid.value;
    }
 }
+let list=document.getElementById('list')

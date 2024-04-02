@@ -27,39 +27,56 @@
 <main>
  <!-- INCOME DETAILS -->
     <section class="section-income">
-        <p class="balance" > 
+        <div >
+        <h5 class="balance" > 
             total income:-
-        </p>
+        </h5>
         <p id="income">
             0
         </p>
-    </section>
-    <section class="section-income">
-        <p class="balance">
+    </div>
+   <div >
+  
+        <h5 class="balance">
             total expense:-
-        </p>
+        </h5>
         <p id="expences">
             0
         </p>
-    </section>
-    <section class="section-income">
-        <p class="balance">
+    </div>
+    
+    <div>
+        <h5 class="balance">
             total savings:-
-        </p>
+        </h5>
         <p >
             0
         </p>
+    </div>
+    </section>
+    <section class="Transactions">
+        <h3>Transactions list:</h3>
+        <ul id="list">
+            
+        </ul>
     </section>
  <!-- INPUT DETAILS OF INCOME -->
-
- <input type="text" placeholder="description" id="desId">
- <input type="text" placeholder="amount" id="amoId"> 
- <select name="" id="select-type">
+<section class="input-details">
+    <h3 style="width: 100%; text-align: center; font-weight: 600;" >Add Transactions:</h3>
+    <label for="Name">Name:</label>
+ <input name="Name" type="text" placeholder="description" id="desId">
+ <label for="Amount">Amount:</label>
+ <input name="Amount" type="number" placeholder="amount" id="amoId" min="0.1" required> 
+ <label for="Date">Date:</label>
+ <input type="date" name="Date" class="date">
+ <label for="Type">Type:</label>
+ <select name="Type" id="select-type">
     <option value="income">Income</option>
     <option value="expense">expense</option>
 
  </select>
- <button onclick="fun()">Add entry</button>
+ <button onclick="fun()">ADD ENTRY</button>
+</section>
 </main>
 <script src="./script.js"></script>
 </body>
