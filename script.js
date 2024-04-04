@@ -1,3 +1,4 @@
+// Get references to HTML elements
 let desid = document.getElementById('desId');
 let amoid = document.getElementById('amoId');
 let incomeRef = document.getElementById('income');
@@ -7,13 +8,19 @@ let savingsRef = document.getElementById('savings');
 let date = document.getElementById('date');
 let list = document.getElementById('list');
 
+// Initialize income, expenses, and savings to 0
+incomeRef.innerHTML = "0";
+expenseRef.innerHTML = "0";
+savingsRef.innerHTML = "0";
+
+// Function to handle adding income or expenses
 function fun() {
     let Name = desid.value;
     let Amount = parseFloat(amoid.value);
     let date_val = date.value;
 
     if (select.value === 'income') {
-        if (Name === "" || isNaN(Amount) || isNaN(Date.parse(date_val)) || Amount < 0) {
+        if (Name === "" || Amount === "" || date_val === "" || Amount < 0) {
             alert('Enter correct details for income');
         } else {
             list.innerHTML += `<li>${Name} with ${Amount} on ${date_val}</li>`;
@@ -25,7 +32,7 @@ function fun() {
             date.value = "";
         }
     } else if (select.value === 'expense') {
-        if (Name === "" || isNaN(Amount) || isNaN(Date.parse(date_val)) || Amount < 0) {
+        if (Name === "" || Amount === "" || date_val === "" || Amount < 0) {
             alert('Enter correct details for expenses');
         } else {
             list.innerHTML += `<li>${Name} with ${Amount} on ${date_val}</li>`;
@@ -39,5 +46,6 @@ function fun() {
     }
 }
 
+// Add event listener to the submit button
 let submitBtn = document.getElementById('submit-Btn');
 submitBtn.addEventListener('click', fun);

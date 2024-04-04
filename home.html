@@ -9,7 +9,6 @@
 <body>
     <!-- NAVBAR HERE -->
     <nav>
-
         <ul class="nav-ul">
             <li class="nav-li" > <a href="./home.html" class="li-a">HOME</a></li>
             <li class="nav-li"><a href="./ai.html" class="li-a">AI</a></li>
@@ -17,67 +16,113 @@
         </ul>
     </nav>
 
-<!-- MAIN  CONTENT HERE -->
+    <!-- MAIN CONTENT HERE -->
 
-<h1>WELCOME TO HOME SECTION</h1>
+    <h1>WELCOME TO HOME SECTION</h1>
 
-<h1>
-    EXPENSE TRACKER
-</h1>
-<main>
- <!-- INCOME DETAILS -->
-    <section class="section-income">
-        <div >
-        <h5 class="balance" > 
-            total income:-
-        </h5>
-        <p id="income">
-           <span>0</span> 
-        </p>
-    </div>
-   <div >
-  
-        <h5 class="balance">
-            total expense:-
-        </h5>
-        <p id="expenses">
-          <span>0</span>  
-        </p>
-    </div>
+    <h1>
+        EXPENSE TRACKER
+    </h1>
+    <main>
+        <!-- INCOME DETAILS -->
+        <section class="section-income">
+            <div >
+
+                total income:-
+                </h5>
+                <p id="income">
+                    <span>0</span> 
+                </p>
+            </div>
+            <div >
+                <h5 class="balance">
+                    total expense:-
+                </h5>
+                <p id="expenses">
+                    <span>0</span>  
+                </p>
+            </div>
+            <div>
+                <h5 class="balance">
+                    total savings:-
+                </h5>
+                <p id="savings" >
+                    <span>0</span> 
+                </p>
+            </div>
+        </section>
+        <section class="Transactions">
+            <h3>Transactions list:</h3>
+            <ul id="list">
+            </ul>
+        </section>
+        <!-- INPUT DETAILS OF INCOME -->
+        <section class="input-details">
+            <h3 style="width: 100%; text-align: center; font-weight: 600;" >Add Transactions:</h3>
+            <label for="Name">Name:</label>
+            <input name="Name" type="text" placeholder="description" id="desId">
+            <label for="Amount">Amount:</label>
+            <input name="Amount" type="number" placeholder="amount" id="amoId" min="0.1" required> 
+            <label for="Date">Date:</label>
+            <input type="date" id="date" name="Date" class="date">
+            <label for="Type">Type:</label>
+            <select name="Type" id="select-type">
+                <option value="income">Income</option>
+                <option value="expense">expense</option>
+            </select>
+            <button id="submit-Btn">ADD ENTRY</button>
+        </section>
+        <section>
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Get references to the HTML elements
+         ctx = document.getElementById('myChart');
+         expenseRef = document.getElementById('expenses');
+         incomeRef = document.getElementById('income');
+         savingsRef = document.getElementById('savings');
     
-    <div>
-        <h5 class="balance">
-            total savings:-
-        </h5>
-        <p id="savings" >
-           <span>0</span> 
-        </p>
-    </div>
-    </section>
-    <section class="Transactions">
-        <h3>Transactions list:</h3>
-        <ul id="list">
-            
-        </ul>
-    </section>
- <!-- INPUT DETAILS OF INCOME -->
-<section class="input-details">
-    <h3 style="width: 100%; text-align: center; font-weight: 600;" >Add Transactions:</h3>
-    <label for="Name">Name:</label>
- <input name="Name" type="text" placeholder="description" id="desId">
- <label for="Amount">Amount:</label>
- <input name="Amount" type="number" placeholder="amount" id="amoId" min="0.1" required> 
- <label for="Date">Date:</label>
- <input type="date" id="date" name="Date" class="date">
- <label for="Type">Type:</label>
- <select name="Type" id="select-type">
-    <option value="income">Income</option>
-    <option value="expense">expense</option>
+        // Define the data for the chart
+        const chartData = {
+            labels: ['Expenses', 'Income', 'Savings'],
+            datasets: [{
+                label: 'Amount',
+                data: [parseFloat(expenseRef.value), parseFloat(incomeRef.value), parseFloat(savingsRef.value)],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)', // Expenses
+                    'rgba(54, 162, 235, 0.2)',  // Income
+                    'rgba(75, 192, 192, 0.2)'   // Savings
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+    
+        // Create the chart
+        new Chart(ctx, {
+            type: 'pie',
+            data: chartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <script src="script.js"></script>
 
- </select>
- <button id="submit-Btn">ADD ENTRY</button>
-</section>
-</main>
-<script src="./script.js"></script>
 </body>
 </html>
