@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Calculator with Payment</title>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <title>Tax Calculator</title>
 </head>
 <body>
-    <h1>Tax Calculator with Payment</h1>
+    <h1>Tax Calculator</h1>
     <label for="income">Income:</label>
     <input type="number" id="income" name="income" required>
 
@@ -21,11 +20,9 @@
 
     <div id="result"></div>
 
-    <button id="payNowBtn" style="display:none;">Pay Now</button>
-
     <script>
-        document.getElementById('calculateBtn').addEventListener('click', async function() {
-            const income = parseFloat(document.getElementById('income').value);
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            income = parseFloat(document.getElementById('incomeRef').value);
             const regime = document.getElementById('regime').value;
 
             let tax = 0;
@@ -68,44 +65,8 @@
             document.getElementById('result').innerHTML = `
                 <p>Tax to be paid: ${tax}</p>
             `;
-
-            document.getElementById('payNowBtn').style.display = 'block';
-            document.getElementById('payNowBtn').setAttribute('data-tax', tax);
-        });
-
-        document.getElementById('payNowBtn').addEventListener('click', async function() {
-            const tax = parseFloat(this.getAttribute('data-tax'));
-
-            const response = await fetch('/create-order', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ amount: tax })
-            });
-
-            const order = await response.json();
-
-            const options = {
-                key: rzp_test_xsjp7xtBmxjcHS, // Replace with your Razorpay API Key
-                amount: order.amount,
-                currency: order.currency,
-                order_id: order.id,
-                name: 'Tax Payment',
-                description: 'Payment for Tax',
-                handler: function (response) {
-                    alert('Payment Successful');
-                },
-                prefill: {
-                    name: 'John Doe',
-                    email: 'john@example.com',
-                    contact: '9999999999'
-                }
-            };
-
-            const rzp = new Razorpay(options);
-            rzp.open();
         });
     </script>
+    <script src="script.js"></script>
 </body>
 </html>

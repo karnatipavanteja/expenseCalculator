@@ -12,7 +12,7 @@
         <ul class="nav-ul">
             <li class="nav-li" > <a href="./home.html" class="li-a">HOME</a></li>
             <li class="nav-li"><a href="./ai.html" class="li-a">AI</a></li>
-            <li class="nav-li"><a class="li-a" href="./tax.html">TAX</a></li>
+            
         </ul>
     </nav>
 
@@ -77,10 +77,28 @@
                 <canvas id="myChart"></canvas>
             </div>
         </section>
-    </main>
+        <section>
+            <h1>Tax Calculator</h1>
+            <label for="income">Income:</label>
+            
+        
+            <label for="regime">Tax Regime:</label>
+            <select id="regime">
+                <option value="old">Old Regime</option>
+                <option value="new">New Regime</option>
+            </select>
+        
+            <button id="calculateBtn">Calculate Tax</button>
+        
+            <div id="result"></div>
+                <button id="rzp-button1">Pay</button>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        </section>
+    </main>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
     <script>
         // Get references to the HTML elements
          ctx = document.getElementById('myChart');
@@ -122,7 +140,8 @@
         });
     </script>
     
-    <script src="script.js"></script>
+    
+   
 
 </body>
 </html>
