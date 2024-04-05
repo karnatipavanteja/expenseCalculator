@@ -33,8 +33,11 @@
     border: 2rem solid var(--main-color);
     font-weight: 600;
     padding:2rem 2rem;
-    box-shadow:     
+    box-shadow:.1rem .1rem .1 rem .5rem  rgba(0,0,0, 0.1);    
 
+}
+main h1{
+    text-align: center;
 }
 
 .tax h1{
@@ -50,7 +53,7 @@ body{
 main{
     margin: 1rem auto;
     padding:1rem;
-    box-shadow: 0 3px 5px rgba(0,0,0, 0.1) ;
+    box-shadow: 5px 3px 5px rgb(190, 42, 42) ;
 }
 .nav-ul{
 display: flex;
@@ -78,6 +81,7 @@ cursor: pointer;
     padding: 20px;
     margin: 5px;
     border-radius: 2rem;
+    box-shadow: .5rem .5rem .5rem .5rem rgb(190, 42, 42);
 }
 .section-income div:first-child{
     font-weight: 600;
@@ -97,8 +101,7 @@ cursor: pointer;
 }
 /* .section-income h5{
     /* font-size: 0.75rem; */
-    text-transform: uppercase;
- */
+   
 .balance{
     width: 100px;
 }

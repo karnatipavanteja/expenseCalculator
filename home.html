@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
+    <title>Expense Tracker</title>
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
@@ -18,12 +18,13 @@
 
     <!-- MAIN CONTENT HERE -->
 
-    <h1>WELCOME TO HOME SECTION</h1>
+ 
 
-    <h1>
-        EXPENSE TRACKER
-    </h1>
+   
     <main>
+        <h1>
+            EXPENSE TRACKER
+        </h1>
         <!-- INCOME DETAILS -->
         <section class="section-income">
             <div >
@@ -88,10 +89,10 @@
                 <option value="new">New Regime</option>
             </select>
         
-            <button id="calculateBtn">Calculate Tax</button>
+            <button id="calculateBtn">Calculate Tax and Pay</button>
         
             <div id="result"></div>
-                <button id="rzp-button1">Pay</button>
+            
 
         </section>
     </main>
@@ -99,46 +100,9 @@
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
    
-    <script>
+    
         // Get references to the HTML elements
-         ctx = document.getElementById('myChart');
-         expenseRef = document.getElementById('expenses');
-         incomeRef = document.getElementById('income');
-         savingsRef = document.getElementById('savings');
-    
-        // Define the data for the chart
-        const chartData = {
-            labels: ['Expenses', 'Income', 'Savings'],
-            datasets: [{
-                label: 'Amount',
-                data: [parseFloat(expenseRef.value), parseFloat(incomeRef.value), parseFloat(savingsRef.value)],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)', // Expenses
-                    'rgba(54, 162, 235, 0.2)',  // Income
-                    'rgba(75, 192, 192, 0.2)'   // Savings
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(75, 192, 192, 1)'
-                ],
-                borderWidth: 1
-            }]
-        };
-    
-        // Create the chart
-        new Chart(ctx, {
-            type: 'pie',
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+      
     
     
    
